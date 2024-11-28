@@ -20,6 +20,11 @@ export default function Page() {
 
 /*MAYBE TODO:
     this sends user an array containing parsed strings
+    send like this:
+    {
+      ["3x100", "5x10", "1"]             
+    }
+      maybe this would be a better aproach
 */
 function basamak(arr: number[]): string[]{
   const retVal: string[] = [];
