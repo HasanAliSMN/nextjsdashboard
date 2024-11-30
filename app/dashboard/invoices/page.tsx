@@ -1,3 +1,10 @@
 export default function Page() {
-    return <p>Invocies Page hsn</p>;
+    return <main>
+      <div>
+        <p>INVOICES</p>
+      </div>
+    </main>;
   }
+
+
+  
