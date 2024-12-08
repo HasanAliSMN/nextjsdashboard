@@ -1,5 +1,10 @@
 import { Revenue } from './definitions';
 
+export function getRandomInt(max: number) {
+  return Math.floor(Math.random() * max) + 1;
+}
+
+
 export const formatCurrency = (amount: number) => {
   return (amount / 100).toLocaleString('en-US', {
     style: 'currency',
@@ -67,3 +72,40 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+export const generateRandomChar = () => {
+  const smallChar: string[] =
+  ["a", "d", "s", "q", "w", "e",
+    "r", "t", "y", "u", "o", "p", "m", "n"];
+  const specialChar: string[] =
+  ["+", "=", "|", "<", ">", "!", "'",
+    "(", "[", "]", ")", "/", ";", ":"];
+
+  // case 1: small case
+  // case 2: big case
+  // case 3: specialchar
+  // case 4: number
+  switch (getRandomInt(4)) {
+    case 1:
+      return smallChar[getRandomInt(smallChar.length -1)];
+      break;
+    case 2:
+      return smallChar[getRandomInt(smallChar.length  -1)].toUpperCase();
+      break;
+    case 3:
+      return specialChar[getRandomInt(specialChar.length - 1)];
+      break;
+    case 4:
+      return getRandomInt(8);
+      break;
+  }
+
+  return "please try again...";
+}
+export function generatePassword(charLength: number): string{
+  let Password: string = "";
+  for (let i = 0; i < charLength; i++) {
+    Password += generateRandomChar();
+  }
+  return Password;
+}
