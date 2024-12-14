@@ -11,14 +11,7 @@ import { formatCurrency } from './utils';
 
 export async function fetchRevenue() {
   try {
-    //inflated time REMOVE after test
-    console.log("Fetching...");
-    await new Promise((resolve => setTimeout(resolve, 3000)));
-
     const data = await sql<Revenue>`SELECT * FROM revenue`;
-
-    console.log("Data Fetced");
-
     return data.rows;
   } catch (error) {
     console.error('Database Error:', error);
